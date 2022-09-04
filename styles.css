@@ -1,0 +1,54 @@
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    font-family: sans-serif;
+  }
+  
+  .app {
+    height: 100%;
+    width: 100%;
+    display: flex;  /* Multiple items can feet on the same row. */
+    flex-direction: column;
+  }
+  /* Becaouse the parant div of "app" uses flex box now we can tell the slide show div to take up all of the remainning vertical space. */
+  .header {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .header h1 {
+    margin: 0 0 10px 0;
+  }
+  
+  .header select {
+    font-size: 1rem;
+  }
+  
+  .slideshow {
+    flex: 1;
+    background-color: #333;
+    position: relative;   /* This maens we can position its children in relation to it using absolut positionning. */
+    overflow: hidden;
+  }
+  
+  .slide {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    opacity: 0;
+    transform: scale(1);  /* To create the zoom effect*/
+    transition: all .9s ease-out;
+  }
+  
+  .slide:nth-last-child(2) {   /* This will select the second to last item of this type */
+    opacity: 1;
+    transform: scale(1.08);   /* To create the zoom effect*/
+  }
